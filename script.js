@@ -4,11 +4,13 @@ var ul = document.querySelector("ul");
 var liList = document.getElementsByTagName("li");
 var deleteBtns = document.getElementsByClassName("delete");
 
+// add event listener and delte buttons on current li elements
 for(var i = 0; i < liList.length; i++) {
 	liList[i].addEventListener("click", modifyItems);
 	createDeleteButton(liList[i]);
 }
 
+// add event listener for delete buttons in current li elements
 for(var i = 0; i < deleteBtns.length; i++) {
 	deleteBtns[i].addEventListener("click", deleteItem);
 }
@@ -22,6 +24,8 @@ function createListElement() {
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
 	input.value = "";
+
+	//also create a delete button
 	createDeleteButton(li);
 	li.addEventListener("click", modifyItems);
 }
